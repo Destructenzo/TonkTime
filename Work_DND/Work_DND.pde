@@ -39,15 +39,44 @@ void draw () {
 void mouseClicked() {
   //Generaly for reference
   if((mouseX > 10 && mouseX<80) && (mouseY > 10 && mouseY < 40)) {
+    print("UL");
   }
   if ((mouseX > 110 && mouseX<180) && (mouseY > 10 && mouseY < 40)) {
+    print("UC");
   }
-  if((mouseX > 210 && mouseX<280) && (mouseY > 10 && mouseY < 40)) {
+  if((mouseX > 210 && mouseX<280) && (mouseY > 10 && mouseY < 40)) {\
+  print("UR");
   }
+  
+  
+  
   //Triangular thingies
-  if((mouseX <= 95 && mouseX >= 85) && (mouseY <= 15 && mouseY >= 25)) {//top left top
-    print("yo, increase mod1");
+  if((mouseX <= 95 && mouseX >= 85) && (mouseY >= 15 && mouseY <= 25)) {//top left top
     mod1 = mod1+1;
   }
+ if((mouseX <= 95 && mouseX >= 85) && (mouseY >= 35 && mouseY <= 45)) {//top left top
+    mod1 = mod1-1;
+  }
+  //center ones
+  if((mouseX <= 195 && mouseX >= 185) && (mouseY >= 15 && mouseY <= 25)) {//top left top
+    mod2 = mod2+1;
+  }
+  if((mouseX <= 195 && mouseX >= 185) && (mouseY >= 35 && mouseY <= 45)) {//top left top
+    mod2 = mod2-1;
+  }
+  //right ones
+  if((mouseX <= 295 && mouseX >= 285) && (mouseY >= 15 && mouseY <= 25)) {//top left top
+    mod3 = mod3+1;
+  }
+  if((mouseX <= 295 && mouseX >= 285) && (mouseY >= 35 && mouseY <= 45)) {//top left top
+    mod3 = mod3-1;
+  }
+  
+  
+  //
+  
+  
+  
+  //Debug
   println(mouseX + "," + mouseY);
 }
