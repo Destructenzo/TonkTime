@@ -2,6 +2,7 @@
 int mod1 = -1;
 int mod2 = 0;
 int mod3 = 1;
+int con = 0;
 
 int screenScroll = 0;
 int scroll = 0;
@@ -26,35 +27,43 @@ void draw () {
   if (screenScroll == 0) {
     color(255);
     fill(255);
-    rect(10,10,90,40);
-    rect(110,10,90,40);
-    rect(210,10,90,40);
+    rect(10,10,65,40);
+    rect(85,10,65,40);
+    rect(160,10,65,40);
+    rect(235, 10, 65,40);
     rect(10,60,90,40);
     rect(210,60,90,40);
     rect(10,110,290,40);
     rect(10,160,90,40);
     rect(110,160,90,40);
     rect(210,160,90,40);
+    rect(110, 60, 90, 15);
     //triangle arrows
     fill(0);
-    triangle(85, 25, 95, 25, 90, 15);
-    triangle(85, 35, 95, 35, 90, 45);
+    triangle(60, 25, 70, 25, 65, 15);
+    triangle(60, 35, 70, 35, 65, 45);
     //middle segment
-    triangle(185, 25, 195, 25, 190, 15);
-    triangle(185, 35, 195, 35, 190, 45);
+    triangle(135, 25, 145, 25, 140, 15);
+    triangle(135, 35, 145, 35, 140, 45);
     //right segment
+    triangle(210, 25, 220, 25, 215, 15);
+    triangle(210, 35, 220, 35, 215, 45);
+    //Constitution 
     triangle(285, 25, 295, 25, 290, 15);
     triangle(285, 35, 295, 35, 290, 45);
-    textSize(17.5);
+    //All the text
+    textSize(12.5);
     color(0,0,0);
+    text("Scroll Rolls", 130, 72);
     text("Mod1: " + mod1, 15, 35);
-    text("Mod2: " + mod2, 115, 35);
-    text("Mod3: " + mod3, 215, 35);
+    text("Mod2: " + mod2, 90, 35);
+    text("Mod3: " + mod3, 165, 35);
+    text("Con: 1d" + con, 240, 35);
+    textSize(15);
     text("CLEAR RESULTS AND INPUTS", 20, 135);
     text("SCROLL", 225, 185);
     text("Wins: " + sucesses, 125,90);
     //Scrollable text
-    textSize(15);
     //Bottom row
     if (scroll == 0) {
       text("Gambling", 20, 185);
@@ -85,36 +94,23 @@ void draw () {
 
 
 void mouseClicked() {
-  //Generaly for reference
-  if((mouseX > 10 && mouseX<80) && (mouseY > 10 && mouseY < 40)) {
-    print("UL");
-  }
-  if ((mouseX > 110 && mouseX<180) && (mouseY > 10 && mouseY < 40)) {
-    print("UC");
-  }
-  if((mouseX > 210 && mouseX<280) && (mouseY > 10 && mouseY < 40)) {
-    print("UR");
-  }
-  
-  
-  
   //Bottom left two
   if((mouseX >= 10 && mouseX<80) && (mouseY >= 160 && mouseY <=200)) {
     print("LLLL");
     if (scroll == 0) {//This one does gambling. The math is if PlayerRoll+Mod1 is > 2d10+5 then 1 sucess. 
-    sucesses = 0;
-      Proll1 = int(random(1,20)) + mod1;
-      Hroll1 = int(random(1,10)) + int(random(1,10)) + 5;
+      sucesses = 0;
+      Proll1 = int(random(1, 21)) + mod1;
+      Hroll1 = int(random(1, 11)) + int(random(1, 11)) + 5;
       if (Proll1 > Hroll1) {
         sucesses++;
       }
-      Proll2 = int(random(1,20)) + mod2;
-      Hroll2 = int(random(1,10)) + int(random(1,10)) + 5;
+      Proll2 = int(random(1, 21)) + mod2;
+      Hroll2 = int(random(1, 11)) + int(random(1,11)) + 5;
       if (Proll2 > Hroll2) {
         sucesses++;
       }
-      Proll3 = int(random(1,20)) + mod3;
-      Hroll2 = int(random(1,10)) + int(random(1,10)) + 5;
+      Proll3 = int(random(1, 21)) + mod3;
+      Hroll2 = int(random(1, 11)) + int(random(1,11)) + 5;
       if (Proll3 > Hroll3) {
         sucesses++;
       }
@@ -122,11 +118,12 @@ void mouseClicked() {
       print(Hroll1 + ", " + Proll1 + " | " + Hroll2 + ", " + Proll2 + " | " + Hroll3 + ", " + Proll3);
       
     } else if (scroll == 1) {
-      Proll1 = int(random(1,20)) + mod1;
+      Proll1 = int(random(1, 21)) + mod1;
       sucesses = Proll1;
     }
     
   }
+  
   if((mouseX >= 110 && mouseX< 200) && (mouseY >= 160 && mouseY <= 200)) {
     print("LLLC");
     if (scroll == 0) {
@@ -139,25 +136,32 @@ void mouseClicked() {
   
   
   //Triangular thingies
-  if((mouseX <= 95 && mouseX >= 85) && (mouseY >= 15 && mouseY <= 25)) {//top left top
+  if((mouseX <= 70 && mouseX >= 60) && (mouseY >= 15 && mouseY <= 25)) {//top left top
     mod1 = mod1+1;
   }
- if((mouseX <= 95 && mouseX >= 85) && (mouseY >= 35 && mouseY <= 45)) {//top left top
+ if((mouseX <= 70 && mouseX >= 60) && (mouseY >= 35 && mouseY <= 45)) {//top left top
     mod1 = mod1-1;
   }
   //center ones
-  if((mouseX <= 195 && mouseX >= 185) && (mouseY >= 15 && mouseY <= 25)) {//top left top
+  if((mouseX <= 145 && mouseX >= 135) && (mouseY >= 15 && mouseY <= 25)) {//top left top
     mod2 = mod2+1;
   }
-  if((mouseX <= 195 && mouseX >= 185) && (mouseY >= 35 && mouseY <= 45)) {//top left top
+  if((mouseX <= 145 && mouseX >= 135) && (mouseY >= 35 && mouseY <= 45)) {//top left top
     mod2 = mod2-1;
   }
   //right ones
-  if((mouseX <= 295 && mouseX >= 285) && (mouseY >= 15 && mouseY <= 25)) {//top left top
+  if((mouseX <= 220 && mouseX >= 210) && (mouseY >= 15 && mouseY <= 25)) {//top left top
     mod3 = mod3+1;
   }
-  if((mouseX <= 295 && mouseX >= 285) && (mouseY >= 35 && mouseY <= 45)) {//top left top
+  if((mouseX <= 220 && mouseX >= 210) && (mouseY >= 35 && mouseY <= 45)) {//top left top
     mod3 = mod3-1;
+  }
+  //CONSTITUION!!!!!!!!!! MEOW MEOW CAOW 
+  if((mouseX <= 295 && mouseX >= 285) && (mouseY >= 15 && mouseY <= 25)) {//top left top
+    con = con+1;
+  }
+  if((mouseX <= 295 && mouseX >= 285) && (mouseY >= 35 && mouseY <= 45)) {//top left top
+    con = con-1;
   }
   
   
@@ -168,6 +172,12 @@ void mouseClicked() {
     scroll++;
     if (scroll >= 2) {
       scroll = 0;
+    }
+  }  
+  if((mouseX <= 200 && mouseX >=110) && (mouseY >= 60 && mouseY <= 75)) {
+    Rscroll++;
+    if (Rscroll >= 3) {
+     Rscroll = 0; 
     }
   }
     
