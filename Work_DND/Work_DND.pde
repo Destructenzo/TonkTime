@@ -58,7 +58,8 @@ void draw () {
     text("Mod1: " + mod1, 15, 35);
     text("Mod2: " + mod2, 90, 35);
     text("Mod3: " + mod3, 165, 35);
-    text("Con: 1d" + con, 240, 35);
+    text("Con: 1d" + con, 240, 27.5);
+    text("DC: " + con, 240, 42.5);
     textSize(15);
     text("CLEAR RESULTS AND INPUTS", 20, 135);
     text("SCROLL", 225, 185);
@@ -110,7 +111,7 @@ void mouseClicked() {
         sucesses++;
       }
       Proll3 = int(random(1, 21)) + mod3;
-      Hroll2 = int(random(1, 11)) + int(random(1,11)) + 5;
+      Hroll3 = int(random(1, 11)) + int(random(1,11)) + 5;
       if (Proll3 > Hroll3) {
         sucesses++;
       }
@@ -127,9 +128,40 @@ void mouseClicked() {
   if((mouseX >= 110 && mouseX< 200) && (mouseY >= 160 && mouseY <= 200)) {
     print("LLLC");
     if (scroll == 0) {
-      
+      if (scroll == 0) {//This one does gambling. The math is if PlayerRoll+Mod1 is > 2d10+5 then 1 sucess. 
+        sucesses = 0;
+        Proll1 = int(random(1, 21)) + mod1;
+        Hroll1 = int(random(1, 11)) + int(random(1, 11)) + 5;
+        if (Proll1 > Hroll1) {
+          sucesses++;
+        }
+        Proll2 = int(random(1, 21)) + mod2;
+        Hroll2 = int(random(1, 11)) + int(random(1,11)) + 5;
+        if (Proll2 > Hroll2) {
+          sucesses++;
+        }
+        Proll3 = int(random(1, 21)) + mod3 + int(random(1,con));
+        Hroll3 = int(random(1, 11)) + int(random(1,11)) + 5;
+        if (Proll3 > Hroll3) {
+          sucesses++;
+        }
+      }
     } else if (scroll == 1) {
-      
+      if (scroll == 0) {//This one does crime. The math is if PlayerRoll+Mod1 is > 2d10+5 then 1 sucess. 
+        sucesses = 0;
+        Proll1 = int(random(1, 21)) + mod1;
+        if (Proll1 > con) {
+          sucesses++;
+        }
+        Proll2 = int(random(1, 21)) + mod2;
+        if (Proll2 > con) {
+          sucesses++;
+        }
+        Proll3 = int(random(1, 21)) + mod3;
+        if (Proll3 > con) {
+          sucesses++;
+        }
+      }
     }
   }
   
