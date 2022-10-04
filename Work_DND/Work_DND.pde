@@ -1,4 +1,3 @@
-
 int mod1 = -1;
 int mod2 = 0;
 int mod3 = 1;
