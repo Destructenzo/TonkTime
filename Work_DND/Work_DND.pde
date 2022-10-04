@@ -61,11 +61,12 @@ void draw () {
     text("Con: 1d" + con, 240, 27.5);
     text("DC: " + con, 240, 42.5);
     textSize(15);
-    text("CLEAR RESULTS AND INPUTS", 20, 135);
+    text("Scroll Through Different Screens", 20, 135);
     text("SCROLL", 225, 185);
     text("Wins: " + sucesses, 125,90);
     //Scrollable text
     //Bottom row
+    
     if (scroll == 0) {
       text("Gambling", 20, 185);
       text("Pit Fighting", 120, 185);
@@ -84,10 +85,110 @@ void draw () {
       text("You got: " + Proll3, 20,90);
       text("They got: " + Hroll3, 220,90);
     }
-   
   } else if (screenScroll == 1) {
-    
-  }
+    fill(255);
+    rect(10,160,290,40);
+    fill(0);
+    text("Scroll Through Different Screens", 30, 190);
+    text("Gambling: ", 120, 20);
+    line(10,25,290,25);
+    line(10,50,290,50);
+    line(10,75,290,75);
+    line(10,100,290,100);
+    line(10,125,290,125);
+    line(10,150,290,150);
+    line(10,25,10,150);
+    line(290,25,290,150);
+    line(30,25,30,125);
+    text("0", 15, 40);
+    text("1", 15, 65);
+    text("2", 15, 90);
+    text("3", 15, 115);
+    text("Owe the amount you gambled: -100%", 40,40);
+    text("Lose half the amount you gambled: 50%", 40,65);
+    text("Gain half amount you gambled: 150%", 40,90);
+    text("Gain the amount you gambled: 200%", 40,115);
+    line(106, 125, 106, 150);
+    line(212, 125, 212, 150);
+    text("Insight (Wis)", 20, 145);
+    text("Deception (Cha)", 110, 145);
+    text("Intim. (Cha)", 217, 145);
+  } else if (screenScroll == 2) {
+    fill(255);
+    rect(10,160,290,40);
+    fill(0);
+    text("Pit Fighting: ", 120, 20);
+    line(10,25,290,25);
+    line(10,50,290,50);
+    line(10,75,290,75);
+    line(10,100,290,100);
+    line(10,125,290,125);
+    line(10,150,290,150);
+    line(10,25,10,150);
+    line(290,25,290,150);
+    line(30,25,30,125);
+    text("0", 15, 40);
+    text("1", 15, 65);
+    text("2", 15, 90);
+    text("3", 15, 115);
+    text("Gain nothing", 40,40);
+    text("Gain 50 gold", 40,65);
+    text("Gain 100 gold", 40,90);
+    text("Gain 200 gold", 40,115);
+    line(106, 125, 106, 150);
+    line(212, 125, 212, 150);
+    text("Athletics (Str)", 20, 145);
+    text("Acrobatics (Dex)", 110, 145);
+    text("Hit Die+Con", 215, 145);
+    text("Scroll Through Different Screens", 30, 190);
+  } else if (screenScroll == 3) {
+    fill(0);
+    text("Work: ", 120, 20);
+    line(10,25,290,25);
+    line(10,50,290,50);
+    line(10,75,290,75);
+    line(10,100,290,100);
+    line(10,125,290,125);
+    line(10,150,290,150);
+    line(10,25,10,150);
+    line(290,25,290,150);
+    line(30,25,30,125);
+    text("0", 15, 40);
+    text("1", 15, 65);
+    text("2", 15, 90);
+    text("3", 15, 115);
+    text("Scroll Through Different Screens", 30, 190);
+    fill(255);
+    rect(10,160,290,40);
+  } else if (screenScroll == 4) {
+    fill(255);
+    rect(10,160,290,40);
+    fill(0);
+    text("Crime: ", 120, 20);
+    line(10,25,290,25);
+    line(10,50,290,50);
+    line(10,75,290,75);
+    line(10,100,290,100);
+    line(10,125,290,125);
+    line(10,150,290,150);
+    line(10,25,10,150);
+    line(290,25,290,150);
+    line(30,25,30,125);
+    text("0", 15, 40);
+    text("1", 15, 65);
+    text("2", 15, 90);
+    text("3", 15, 115);
+    text("Gain nothing", 40,40);
+    text("Gain 50 gold", 40,65);
+    text("Gain 100 gold", 40,90);
+    text("Gain 200 gold", 40,115);
+    line(106, 125, 106, 150);
+    line(212, 125, 212, 150);
+    text("Athletics (Str)", 20, 145);
+    text("Acrobatics (Dex)", 110, 145);
+    text("Hit Die+Con", 215, 145);
+    text("Scroll Through Different Screens", 30, 190);
+  } 
 }
 
 
@@ -118,17 +219,17 @@ void mouseClicked() {
       
       print(Hroll1 + ", " + Proll1 + " | " + Hroll2 + ", " + Proll2 + " | " + Hroll3 + ", " + Proll3);
       
-    } else if (scroll == 1) {
+    } else if (scroll == 1) { // Work! elizzaaaaa........
       Proll1 = int(random(1, 21)) + mod1;
       sucesses = Proll1;
     }
     
   }
   
-  if((mouseX >= 110 && mouseX< 200) && (mouseY >= 160 && mouseY <= 200)) {
+  if((mouseX >= 110 && mouseX <= 200) && (mouseY >= 160 && mouseY <= 200)) {
     print("LLLC");
     if (scroll == 0) {
-      if (scroll == 0) {//This one does gambling. The math is if PlayerRoll+Mod1 is > 2d10+5 then 1 sucess. 
+      if (scroll == 0) {//This one does pit fighting. The math is if PlayerRoll+Mod1 is > 2d10+5 then 1 sucess. 
         sucesses = 0;
         Proll1 = int(random(1, 21)) + mod1;
         Hroll1 = int(random(1, 11)) + int(random(1, 11)) + 5;
@@ -146,8 +247,8 @@ void mouseClicked() {
           sucesses++;
         }
       }
+      
     } else if (scroll == 1) {
-      if (scroll == 0) {//This one does crime. The math is if PlayerRoll+Mod1 is > 2d10+5 then 1 sucess. 
         sucesses = 0;
         Proll1 = int(random(1, 21)) + mod1;
         if (Proll1 > con) {
@@ -161,7 +262,6 @@ void mouseClicked() {
         if (Proll3 > con) {
           sucesses++;
         }
-      }
     }
   }
   
@@ -212,7 +312,26 @@ void mouseClicked() {
      Rscroll = 0; 
     }
   }
-    
+  // Screen scroll to access pictures+tables
+  if (mouseX <= 300 && mouseX >= 10 && (mouseY >= 110 && mouseY <=150)) {
+    if (screenScroll == 0) {
+    screenScroll++;
+    print("scroll");
+    if (screenScroll >= 5) {
+      screenScroll = 0;
+    }
+    }
+  }
+  if ((mouseX <= 300 && mouseX >=10) && (mouseY <=200 && mouseY >=160)) {
+    if (screenScroll != 0) {
+      screenScroll++;
+      print("scroll");
+      if (screenScroll >= 5) {
+        screenScroll = 0;
+      }
+    }
+  }
   //Debug
   println(mouseX + "," + mouseY);
+  
 }
