@@ -153,7 +153,7 @@ void draw () {
     line(10,150,290,150);
     line(10,25,10,150);
     line(290,25,290,150);
-    line(60,25,30,125);
+    line(60,25,60,125);
     text("<= 9", 15, 40);
     text("10-14", 15, 65);
     text("15-20", 15, 90);
@@ -182,16 +182,28 @@ void draw () {
     text("1", 15, 65);
     text("2", 15, 90);
     text("3", 15, 115);
-    text("Gain nothing", 40,40);
-    text("Gain 50 gold", 40,65);
-    text("Gain 100 gold", 40,90);
-    text("Gain 200 gold", 40,115);
-    line(106, 125, 106, 150);
-    line(212, 125, 212, 150);
-    text("Athletics (Str)", 20, 145);
-    text("Acrobatics (Dex)", 110, 145);
-    text("Hit Die+Con", 215, 145);
+    text("Pay attempt and 1w for every 25gp", 40,40);
+    text("You escape", 40,65);
+    text("1/2 attempt", 40,90);
+    text("All the attempt", 40,115);
+    line(60, 125, 60, 150);
+    line(180, 125, 180, 150);
+    text("Stealth", 12, 145);
+    text("Thieves tools (Dex)", 63, 145);
+    text("1 of:Inv, Per, Dec", 185, 145);
     text("Scroll Through Different Screens", 30, 190);
+    line(130,50,130,100);
+    line(175,50,175,100);
+    text("DC:10", 135, 70);
+    text("50", 177, 70);
+    text("DC:15", 135, 90);
+    text("100", 177, 90);
+    line(200,50,200,100);
+    line(250,50,250,100);
+    text("DC:20", 205, 70);
+    text("200", 252, 70);
+    text("DC:25", 205, 90);
+    text("1000", 252, 90);
   } 
 }
 
