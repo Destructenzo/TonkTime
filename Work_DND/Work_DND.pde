@@ -141,6 +141,8 @@ void draw () {
     text("Hit Die+Con", 215, 145);
     text("Scroll Through Different Screens", 30, 190);
   } else if (screenScroll == 3) {
+    fill(255);
+    rect(10,160,290,40);
     fill(0);
     text("Work: ", 120, 20);
     line(10,25,290,25);
@@ -151,14 +153,17 @@ void draw () {
     line(10,150,290,150);
     line(10,25,10,150);
     line(290,25,290,150);
-    line(30,25,30,125);
-    text("0", 15, 40);
-    text("1", 15, 65);
-    text("2", 15, 90);
-    text("3", 15, 115);
+    line(60,25,30,125);
+    text("<= 9", 15, 40);
+    text("10-14", 15, 65);
+    text("15-20", 15, 90);
+    text(">= 21", 15, 115);
     text("Scroll Through Different Screens", 30, 190);
-    fill(255);
-    rect(10,160,290,40);
+    text("Choose 1: Athl,Acro,Tool(Int),Perf,Inst(Cha)", 20, 145);
+    text("Poor Week ~ 1gp", 70,40);
+    text("Modest Week ~ 5gp", 70,65);
+    text("Comfortable Week ~ 10gp", 70,90);
+    text("Comfortable + 25 ~ 35gp", 70,115);
   } else if (screenScroll == 4) {
     fill(255);
     rect(10,160,290,40);
