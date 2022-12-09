@@ -8,15 +8,20 @@ public boolean turnRight = false;
 public boolean turnLeft = false;
 public boolean moveBackward = false;
 public int turn = 0; //0 is AI turn, 1 is P1, 2 is P2
-public PImage PBulletSmall = loadImage("bulletR.jpgs");
+public PImage PBulletSmall;
+public int scale = 2; //1x scale = 500x500. 2x scale = 1000x1000
+public boolean test = true; //FIX LATER
 
 void setup() {
-    size(1000, 1000);
-    background(0);
-    
+  //Size needs to be changed to 500*scale. 
+  size(1000, 1000);
+  loadPics();
 }
 
+
 void draw() {
+  width = 500*scale;
+  height = 500*scale;
   if (gameStart == true) {
     fill(BC1);
     stroke(BC1);
@@ -29,18 +34,22 @@ void draw() {
     for (int i=0; i<20; i++) {
       fill(lineColor);
       stroke(lineColor);
-      line(0, 50*i, 1000, 50*i);
-      line(50*i, 0, 50*i, 1000);
+      line(0, 25*scale*i, 5000, 25*scale*i);
+      line(scale*25*i, 0, 25*scale*i, 1000);
     }
     //Borders
-    rect(0,0,1000,50);
-    rect(0, 950, 1000, 50);
-    rect(0,0, 50, 1000);
-    rect(950, 0, 50, 1000);
+    rect(0,0,1000,25*scale);
+    rect(0, (500*scale-scale*25), 1000, 25*scale);
+    rect(0,0, 25*scale, 1000);
+    rect((500*scale-scale*25), 0, 25*scale, 1000);
     
   } else if (gameStart == false) {
      
   }
+  
+  bullet.add(new bullet.create(50,50, "test"));
+  
+  
 }
 
 //This whole setup controls input. It will "see" which key is pressed. It also sees you released one
@@ -61,4 +70,8 @@ void keyReleased() {
   moveBackward = false;
   turnLeft = false;
   turnRight = false; 
+}
+
+public void loadPics() {
+  PBulletSmall = loadImage("bulletRB.png");
 }
