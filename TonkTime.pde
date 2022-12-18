@@ -8,13 +8,13 @@ public boolean turnRight = false;
 public boolean turnLeft = false;
 public boolean moveBackward = false;
 public int turn = 0; //0 is AI turn, 1 is P1, 2 is P2
-public PImage PBulletSmall;
-public int scale = 2; //1x scale = 500x500. 2x scale = 1000x1000
+public PImage PBulletSmall, boomR;
+public int scale = 1; //1x scale = 500x500. 2x scale = 1000x1000
 public boolean test = true; //FIX LATER
-
+public ArrayList<image> playerTonk = new ArrayList<picture>();
 void setup() {
   //Size needs to be changed to 500*scale. 
-  size(1000, 1000);
+  size(500, 500);
   loadPics();
 }
 
@@ -47,9 +47,12 @@ void draw() {
      
   }
   
-  bullet.add(new bullet.create(50,50, "test"));
+  bullets.add(new bullet(50,50, "missile"));
   
   
+  for (int i = 0; i <= (bullets.size()-1); ++i) {
+    bullets.get(i).display();
+  }  
 }
 
 //This whole setup controls input. It will "see" which key is pressed. It also sees you released one
@@ -74,4 +77,6 @@ void keyReleased() {
 
 public void loadPics() {
   PBulletSmall = loadImage("bulletRB.png");
+  boomR = loadImage("boomR.png");
+  
 }
