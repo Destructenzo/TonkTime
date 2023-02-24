@@ -1,6 +1,7 @@
 public class bullet {
   int x; int y; String source;
   int time;
+  boolean detonation = false;
   
   bullet(int xi,int yi, String sourcei) {//Source to avoid friendly fire, may be really hard to implement
     x = xi; y=yi; source=sourcei; time = millis();
@@ -22,8 +23,10 @@ public class bullet {
       image(PBulletSmall, x, y);
     }
     
-    if (((millis() - time) == 5000) && source == "missile") {
-      image(boomR, x, y);
+    if ((((millis() - time) == 5000) && source == "missile") && detonation == false) {
+      detonation = true;
+      image(boomR1, x, y);
+      
     }
     
     

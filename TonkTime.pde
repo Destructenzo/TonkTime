@@ -8,14 +8,16 @@ public boolean turnRight = false;
 public boolean turnLeft = false;
 public boolean moveBackward = false;
 public int turn = 0; //0 is AI turn, 1 is P1, 2 is P2
-public PImage PBulletSmall, boomR;
+public PImage PBulletSmall, boomR1;
 public int scale = 1; //1x scale = 500x500. 2x scale = 1000x1000
 public boolean test = true; //FIX LATER
-public ArrayList<image> playerTonk = new ArrayList<picture>();
+public ArrayList<PImage> playerTonkSprite = new ArrayList<PImage>();
+public player tonk = new player(1, 1, 1);
 void setup() {
   //Size needs to be changed to 500*scale. 
   size(500, 500);
   loadPics();
+  translate(CENTER, CENTER);
 }
 
 
@@ -38,11 +40,13 @@ void draw() {
       line(scale*25*i, 0, 25*scale*i, 1000);
     }
     //Borders
-    rect(0,0,1000,25*scale);
+    rect(0,0, 500*scale, 25*scale);
     rect(0, (500*scale-scale*25), 1000, 25*scale);
-    rect(0,0, 25*scale, 1000);
+    rect(0,0, 25*scale, 500*scale);
     rect((500*scale-scale*25), 0, 25*scale, 1000);
-    
+    //FUNCTIONS
+    tonk.movement();
+    tonk.display();
   } else if (gameStart == false) {
      
   }
@@ -77,6 +81,7 @@ void keyReleased() {
 
 public void loadPics() {
   PBulletSmall = loadImage("bulletRB.png");
-  boomR = loadImage("boomR.png");
-  
+  boomR1 = loadImage("boomR-1.gif");
+  playerTonkSprite.add(loadImage("greenTonkU.png"));
+  playerTonkSprite.add(loadImage("greyTonkU.png"));
 }
