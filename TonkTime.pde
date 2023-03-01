@@ -1,8 +1,8 @@
 public boolean gameStart = true;
 public ArrayList<bullet> bullets = new ArrayList<bullet>();
-public player Player = new player(-100,-100, 1);
+public player Player = new player(100,100, 1);
 public color BC1 = color(0, 0, 0);
-public color lineColor = color(200, 200, 0);
+public color lineColor = color(150, 200, 0);
 public boolean moveForward = false;
 public boolean turnRight = false;
 public boolean turnLeft = false;
@@ -12,7 +12,7 @@ public PImage PBulletSmall, boomR1;
 public int scale = 1; //1x scale = 500x500. 2x scale = 1000x1000
 public boolean test = true; //FIX LATER
 public ArrayList<PImage> playerTonkSprite = new ArrayList<PImage>();
-public player tonk = new player(1, 1, 1);
+public player tonk = new player(100, 100, 1);
 void setup() {
   //Size needs to be changed to 500*scale. 
   size(500, 500);
@@ -39,6 +39,7 @@ void draw() {
       line(0, 25*scale*i, 5000, 25*scale*i);
       line(scale*25*i, 0, 25*scale*i, 1000);
     }
+    
     //Borders
     rect(0,0, 500*scale, 25*scale);
     rect(0, (500*scale-scale*25), 1000, 25*scale);
@@ -47,6 +48,7 @@ void draw() {
     //FUNCTIONS
     tonk.movement();
     tonk.display();
+    direction();
   } else if (gameStart == false) {
      
   }
@@ -84,4 +86,9 @@ public void loadPics() {
   boomR1 = loadImage("boomR-1.gif");
   playerTonkSprite.add(loadImage("greenTonkU.png"));
   playerTonkSprite.add(loadImage("greyTonkU.png"));
+}
+
+public void direction() {
+  fill(0,0,0);
+  rect(width-(20*scale), 100*scale, 20*scale-5*scale, 250*scale);
 }
