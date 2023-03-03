@@ -2,7 +2,7 @@ public boolean gameStart = true;
 public ArrayList<bullet> bullets = new ArrayList<bullet>();
 public player Player = new player(100,100, 1);
 public color BC1 = color(0, 0, 0);
-public color lineColor = color(150, 200, 0);
+public color lineColor = color(75, 139, 0);
 public boolean moveForward = false;
 public boolean turnRight = false;
 public boolean turnLeft = false;
@@ -18,6 +18,7 @@ void setup() {
   size(500, 500);
   loadPics();
   translate(CENTER, CENTER);
+  frameRate(20);
 }
 
 
@@ -27,7 +28,7 @@ void draw() {
   if (gameStart == true) {
     fill(BC1);
     stroke(BC1);
-    background(0);
+    background(153);
     fill(255,255,255);
     stroke(255, 0,0);
     Player.x = 10;
